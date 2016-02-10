@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Workers Example</title>
+  </head>
+  <body>
+    <!-- // <script src="squareworker.js"></script> -->
+    <script>
+      var squareWorker = new Worker("squareworker.js");
+      squareWorker.addEventListener("message", function(event) {
+        console.log("The worker responded: " + event.data);
+      });
+      squareWorker.postMessage(10);
+      squareWorker.postMessage(500);
+    </script>
+  </body>
+</html>
